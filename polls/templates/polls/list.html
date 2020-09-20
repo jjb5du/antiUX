@@ -1,0 +1,95 @@
+{% load static %}
+
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
+</head>
+
+<body>
+
+
+<!-- Navbar-->
+<nav class="navbar navbar-expand-lg nav-bg">
+    <a class="navbar-brand font-white" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link font-white" href="#">Current Poll <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class=" font-white nav-link font-white" href="#">Comments</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class=" font-white nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Past Polls
+          </a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-primary my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+
+  <!-- Comment List-->
+
+    <div class="container justify-content-center d-flex pt-4 mb-4">
+        <div class = "flex-column d-flex"> 
+            <div  class="mb-2 comment-list">
+                <h1 class = "font-weight-bold"> Latest Poll: 
+                        <block>
+                            {{ latest_question.question_text }}
+                        </block>
+                </h1>
+            </div>
+
+            <div class="comment-list">
+                <h2> Comments </h2>
+            
+                <div style>
+                    <ol>
+                        {% for c in comments %}
+                            <li>{{ c.name }}: {{ c.comment_text }}</li>
+                        {% endfor %}
+                    </ol>
+                </div>
+          </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+
+<div style="position: fixed" class = "mt-5 pt-5 pb-3 footer">
+    <div style="color: white" class = "">
+      <div class = "d-flex row text-center">
+
+        <div class="col-3">
+          <h6>Subscribe to our Newsletter</h6>
+          <h6>Learn More</h6>
+        </div>
+
+        <div class="col-6">
+          <h6>Created by Jett Bisset</h6>
+          <p style="font-size: 12px;">All Rights Reserved</p>
+        </div>
+
+        <div class="col-3">
+          <h6>Privacy</h6>
+          <h6>About Us</h6>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+
+
+</body>
